@@ -4,8 +4,13 @@ class Post < ActiveRecord::Base
   scope :recent, order: "created_at DESC", limit: 5
 
   before_save :titleize_title
+  after_save :set_slug
 
   validates_presence_of :title, :content
+
+  def set_slug
+    self.slug = "new-post"
+  end
 
   private
 

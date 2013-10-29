@@ -1,0 +1,12 @@
+<h1> Hey Paul </h1>
+
+<%= form_for [:admin, @post] do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_area :content %>
+  <%= f.check_box :is_published %>
+  <%= f.submit "Save" %>
+<% end %>
+
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+<% end %>
